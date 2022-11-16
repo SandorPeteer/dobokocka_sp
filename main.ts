@@ -68,7 +68,53 @@ function kocka () {
     } else {
         basic.clearScreen()
     }
+    finish = true
 }
+let finish = false
 let value = 0
 input.onGesture(Gesture.Shake, kocka)
 input.onButtonPressed(Button.A, kocka)
+basic.forever(function () {
+    if (finish == true) {
+        basic.clearScreen()
+        if (value == 1) {
+            led.plot(2, 2)
+        } else if (value == 2) {
+            led.plot(1, 1)
+            led.plot(3, 3)
+        } else if (value == 3) {
+            led.plot(1, 3)
+            led.plot(2, 2)
+            led.plot(3, 1)
+        } else if (value == 4) {
+            led.plot(1, 1)
+            led.plot(3, 1)
+            led.plot(1, 3)
+            led.plot(3, 3)
+        } else if (value == 5) {
+            led.plot(1, 1)
+            led.plot(1, 3)
+            led.plot(2, 2)
+            led.plot(3, 1)
+            led.plot(3, 3)
+        } else if (value == 6) {
+            led.plot(1, 1)
+            led.plot(1, 2)
+            led.plot(1, 3)
+            led.plot(3, 1)
+            led.plot(3, 2)
+            led.plot(3, 3)
+        } else {
+            basic.clearScreen()
+        }
+        basic.pause(500)
+        basic.showLeds(`
+            # # # # #
+            # . . . #
+            # . . . #
+            # . . . #
+            # # # # #
+            `,0)
+basic.pause(500)
+    }
+})
