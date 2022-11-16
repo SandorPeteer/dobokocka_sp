@@ -1,4 +1,5 @@
 function kocka () {
+    finish = false
     for (let index2 = 0; index2 <= 4; index2++) {
         for (let index = 0; index <= 5; index++) {
             if (index == 5) {
@@ -70,8 +71,8 @@ function kocka () {
     }
     finish = true
 }
-let finish = false
 let value = 0
+let finish = false
 input.onGesture(Gesture.Shake, kocka)
 input.onButtonPressed(Button.A, kocka)
 basic.forever(function () {
